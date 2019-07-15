@@ -4,11 +4,13 @@
   "description": "A ajv based validater for eth transactions",
   "main": "index.js",
   "scripts": {
+    "start": "node validater.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Anuj",
   "license": "ISC",
   "dependencies": {
-    "ajv": "^6.10.1"
+    "ajv": "^6.10.1",
+    "chalk": "^2.4.2"
   }
 }

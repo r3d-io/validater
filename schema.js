@@ -1,9 +1,6 @@
 const getTransaction = {
   "type": "object",
   "properties": {
-    "blockHash": {
-      "type": "string"
-    },
     "blockNumber": {
       "type": "integer"
     },
@@ -25,27 +22,18 @@ const getTransaction = {
     "nonce": {
       "type": "integer"
     },
-    "r": {
-      "type": "string"
-    },
-    "s": {
-      "type": "string"
-    },
     "to": {
       "type": "string"
     },
     "transactionIndex": {
       "type": "integer"
     },
-    "v": {
-      "type": "string"
-    },
     "value": {
       "type": "string"
     }
   },
   "required": [
-    "blockHash",
+    "blockNumber",
     "from",
     "gas",
     "gasPrice",
@@ -60,14 +48,8 @@ const getTransaction = {
 const getTransactionReceipt = {
   "type": "object",
   "properties": {
-    "blockHash": {
-      "type": "string"
-    },
     "blockNumber": {
       "type": "integer"
-    },
-    "contractAddress": {
-      "type": "null"
     },
     "cumulativeGasUsed": {
       "type": "integer"
@@ -81,9 +63,6 @@ const getTransactionReceipt = {
     "logs": {
       "type": "array",
       "items": {}
-    },
-    "logsBloom": {
-      "type": "string"
     },
     "status": {
       "type": "boolean"
@@ -99,7 +78,8 @@ const getTransactionReceipt = {
     }
   },
   "required": [
-    "blockHash",
+    "blockNumber",
+    "cumulativeGasUsed",
     "from",
     "gasUsed",
     "logs",

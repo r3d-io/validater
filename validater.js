@@ -14,3 +14,5 @@ function validateJson(schema, data, name) {
 
 validateJson(schemas.getTransaction, data.getTransaction, "get tranasction")
 validateJson(schemas.getTransactionReceipt, data.getTransactionReceipt, "get transaction receipt")
+validateJson(schemas.getBlock, data.getBlock, "get Block")
+

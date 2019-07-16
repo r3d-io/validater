@@ -564,11 +564,158 @@ const btcGetBlockL2 = {
   ]
 }
 
+const btcRawTransaction = {
+  "type": "object",
+  "properties": {
+    "result": {
+      "type": "object",
+      "properties": {
+        "txid": {
+          "type": "string"
+        },
+        "hash": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "vsize": {
+          "type": "integer"
+        },
+        "weight": {
+          "type": "integer"
+        },
+        "locktime": {
+          "type": "integer"
+        },
+        "vin": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "coinbase": {
+                  "type": "string"
+                },
+                "sequence": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "coinbase",
+                "sequence"
+              ]
+            }
+          ]
+        },
+        "vout": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "number"
+                },
+                "n": {
+                  "type": "integer"
+                },
+                "scriptPubKey": {
+                  "type": "object",
+                  "properties": {
+                    "asm": {
+                      "type": "string"
+                    },
+                    "hex": {
+                      "type": "string"
+                    },
+                    "reqSigs": {
+                      "type": "integer"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "addresses": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "asm",
+                    "hex",
+                    "reqSigs",
+                    "type",
+                    "addresses"
+                  ]
+                }
+              },
+              "required": [
+                "value",
+                "n",
+                "scriptPubKey"
+              ]
+            }
+          ]
+        },
+        "hex": {
+          "type": "string"
+        },
+        "blockhash": {
+          "type": "string"
+        },
+        "confirmations": {
+          "type": "integer"
+        },
+        "time": {
+          "type": "integer"
+        },
+        "blocktime": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "txid",
+        "hash",
+        "version",
+        "size",
+        "vsize",
+        "weight",
+        "locktime",
+        "vin",
+        "vout",
+        "hex",
+        "blockhash",
+        "confirmations",
+        "time",
+        "blocktime"
+      ]
+    },
+    "error": {
+      "type": "null"
+    },
+    "id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "result",
+    "error",
+    "id"
+  ]
+}
 module.exports = {
   ethGetTransaction,
   ethGetTransactionReceipt,
   ethGetBlock,
+  ethTraceBlockByNumber,
   btcGetBlockL1,
   btcGetBlockL2,
-  ethTraceBlockByNumber
+  btcRawTransaction,
 }

@@ -2489,7 +2489,83 @@ const btcGetBlockL2 = {
   "id": "1"
 }
 
+const btcRawTransaction = {
+  "result": {
+    "txid": "9c397f783042029888ec02f0a461cfa2cc8e3c7897f476e338720a2a86731c60",
+    "hash": "9c397f783042029888ec02f0a461cfa2cc8e3c7897f476e338720a2a86731c60",
+    "version": 1,
+    "size": 135,
+    "vsize": 135,
+    "weight": 540,
+    "locktime": 0,
+    "vin": [
+      {
+        "coinbase": "04ffff001d026f03",
+        "sequence": 4294967295
+      }
+    ],
+    "vout": [
+      {
+        "value": 50.00000000,
+        "n": 0,
+        "scriptPubKey": {
+          "asm": "042f462d3245d2f3a015f7f9505f763ee1080cab36191d07ae9e6509f71bb68818719e6fb41c019bf48ae11c45b024d476e19b6963103ce8647fc15fee513b15c7 OP_CHECKSIG",
+          "hex": "41042f462d3245d2f3a015f7f9505f763ee1080cab36191d07ae9e6509f71bb68818719e6fb41c019bf48ae11c45b024d476e19b6963103ce8647fc15fee513b15c7ac",
+          "reqSigs": 1,
+          "type": "pubkey",
+          "addresses": [
+            "1JoiKZz2QRd47ARtcYgvgxC9jhnre9aphv"
+          ]
+        }
+      }
+    ],
+    "hex": "01000000010000000000000000000000000000000000000000000000000000000000000000ffffffff0804ffff001d026f03ffffffff0100f2052a010000004341042f462d3245d2f3a015f7f9505f763ee1080cab36191d07ae9e6509f71bb68818719e6fb41c019bf48ae11c45b024d476e19b6963103ce8647fc15fee513b15c7ac00000000",
+    "blockhash": "0000000099c744455f58e6c6e98b671e1bf7f37346bfd4cf5d0274ad8ee660cb",
+    "confirmations": 575660,
+    "time": 1238988213,
+    "blocktime": 1238988213
+  },
+  "error": null,
+  "id": "1"
+}
+
+const btcDecodeRawTransaction = {
+  "result":{
+     "txid":"9c397f783042029888ec02f0a461cfa2cc8e3c7897f476e338720a2a86731c60",
+     "hash":"9c397f783042029888ec02f0a461cfa2cc8e3c7897f476e338720a2a86731c60",
+     "version":1,
+     "size":135,
+     "vsize":135,
+     "weight":540,
+     "locktime":0,
+     "vin":[
+        {
+           "coinbase":"04ffff001d026f03",
+           "sequence":4294967295
+        }
+     ],
+     "vout":[
+        {
+           "value":50.00000000,
+           "n":0,
+           "scriptPubKey":{
+              "asm":"042f462d3245d2f3a015f7f9505f763ee1080cab36191d07ae9e6509f71bb68818719e6fb41c019bf48ae11c45b024d476e19b6963103ce8647fc15fee513b15c7 OP_CHECKSIG",
+              "hex":"41042f462d3245d2f3a015f7f9505f763ee1080cab36191d07ae9e6509f71bb68818719e6fb41c019bf48ae11c45b024d476e19b6963103ce8647fc15fee513b15c7ac",
+              "reqSigs":1,
+              "type":"pubkey",
+              "addresses":[
+                 "1JoiKZz2QRd47ARtcYgvgxC9jhnre9aphv"
+              ]
+           }
+        }
+     ]
+  },
+  "error":null,
+  "id":"1"
+}
+
 module.exports = {
   btcGetBlockL1,
-  btcGetBlockL2
+  btcGetBlockL2,
+  btcRawTransaction
 }

@@ -253,7 +253,7 @@ const ethTraceBlockByNumber = {
     },
     "result": {
       "type": "array",
-      "items":{
+      "items": {
         "type": "object",
         "properties": {
           "result": {
@@ -285,6 +285,45 @@ const ethTraceBlockByNumber = {
               },
               "time": {
                 "type": "string"
+              },
+              "calls": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string"
+                    },
+                    "from": {
+                      "type": "string"
+                    },
+                    "to": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    },
+                    "gas": {
+                      "type": "string"
+                    },
+                    "gasUsed": {
+                      "type": "string"
+                    },
+                    "input": {
+                      "type": "string"
+                    },
+                    "output": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "from",
+                    "to",
+                    "value",
+                    "input",
+                  ]
+                },
               }
             },
             "required": [
@@ -300,9 +339,6 @@ const ethTraceBlockByNumber = {
             ]
           }
         },
-        "required": [
-          "result"
-        ]
       }
     }
   },

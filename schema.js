@@ -1,4 +1,4 @@
-const getTransaction = {
+const ethGetTransaction = {
   "type": "object",
   "properties": {
     "blockNumber": {
@@ -45,7 +45,7 @@ const getTransaction = {
   ]
 }
 
-const getTransactionReceipt = {
+const ethGetTransactionReceipt = {
   "type": "object",
   "properties": {
     "blockNumber": {
@@ -90,7 +90,7 @@ const getTransactionReceipt = {
   ]
 }
 
-const getBlock = {
+const ethGetBlock = {
   "type": "object",
   "properties": {
     "gasLimit": {
@@ -122,7 +122,7 @@ const getBlock = {
     },
     "transactions": {
       "type": "array",
-      "items": getTransaction
+      "items": ethGetTransaction
     }
   },
   "required": [
@@ -139,8 +139,184 @@ const getBlock = {
   ]
 }
 
+const btcGetBlock = {
+  "type": "object",
+  "properties": {
+    "result": {
+      "type": "object",
+      "properties": {
+        "hash": {
+          "type": "string"
+        },
+        "confirmations": {
+          "type": "integer"
+        },
+        "strippedsize": {
+          "type": "integer"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "weight": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "version": {
+          "type": "integer"
+        },
+        "versionHex": {
+          "type": "string"
+        },
+        "merkleroot": {
+          "type": "string"
+        },
+        "tx": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "time": {
+          "type": "integer"
+        },
+        "mediantime": {
+          "type": "integer"
+        },
+        "nonce": {
+          "type": "integer"
+        },
+        "bits": {
+          "type": "string"
+        },
+        "difficulty": {
+          "type": "number"
+        },
+        "chainwork": {
+          "type": "string"
+        },
+        "nTx": {
+          "type": "integer"
+        },
+        "previousblockhash": {
+          "type": "string"
+        },
+        "nextblockhash": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "hash",
+        "confirmations",
+        "strippedsize",
+        "size",
+        "weight",
+        "height",
+        "version",
+        "versionHex",
+        "merkleroot",
+        "tx",
+        "time",
+        "mediantime",
+        "nonce",
+        "bits",
+        "difficulty",
+        "chainwork",
+        "nTx",
+        "previousblockhash",
+        "nextblockhash"
+      ]
+    },
+    "error": {
+      "type": "null"
+    },
+    "id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "result",
+    "error",
+    "id"
+  ]
+}
+
+const ethTraceBlockByNumber = {
+  "type": "object",
+  "properties": {
+    "jsonrpc": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer"
+    },
+    "result": {
+      "type": "array",
+      "items":{
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "from": {
+                "type": "string"
+              },
+              "to": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              },
+              "gas": {
+                "type": "string"
+              },
+              "gasUsed": {
+                "type": "string"
+              },
+              "input": {
+                "type": "string"
+              },
+              "output": {
+                "type": "string"
+              },
+              "time": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "from",
+              "to",
+              "value",
+              "gas",
+              "gasUsed",
+              "input",
+              "output",
+              "time"
+            ]
+          }
+        },
+        "required": [
+          "result"
+        ]
+      }
+    }
+  },
+  "required": [
+    "jsonrpc",
+    "id",
+    "result"
+  ]
+}
+
 module.exports = {
-  getTransaction,
-  getTransactionReceipt,
-  getBlock
+  ethGetTransaction,
+  ethGetTransactionReceipt,
+  ethGetBlock,
+  btcGetBlock,
+  ethTraceBlockByNumber
 }

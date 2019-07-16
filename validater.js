@@ -1,4 +1,5 @@
-let data = require("./example");
+let ethData = require("./ethExample");
+let btcData = require("./btcExample");
 let schemas = require("./schema");
 const chalk = require('chalk');
 
@@ -12,9 +13,13 @@ function validateJson(schema, data, name) {
   else console.log("Valid data",chalk.green(name))
 }
 
-validateJson(schemas.getTransaction, data.getTransaction, "get tranasction")
-validateJson(schemas.getTransactionReceipt, data.getTransactionReceipt, "get transaction receipt")
+validateJson(schemas.ethGetTransaction, ethData.getTransaction, "get tranasction")
+validateJson(schemas.ethGetTransactionReceipt, ethData.getTransactionReceipt, "get transaction receipt")
+validateJson(schemas.ethTraceBlockByNumber, ethData.ethTraceBlockByNumber, "eth Trace Block By Number")
 console.time();
-validateJson(schemas.getBlock, data.getBlock, "get Block")
+validateJson(schemas.ethGetBlock, ethData.getBlock, "get Block eth")
+console.timeEnd();
+console.time();
+validateJson(schemas.btcGetBlock, btcData.getBlock, "get Block btc")
 console.timeEnd();
 

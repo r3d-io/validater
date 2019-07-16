@@ -1,5 +1,6 @@
 let data = require("./example");
 let schemas = require("./schema");
+let test = require("./test");
 const chalk = require('chalk');
 
 let Ajv = require('ajv');
@@ -12,9 +13,10 @@ function validateJson(schema, data, name) {
   else console.log("Valid data",chalk.green(name))
 }
 
+console.time();
 validateJson(schemas.getTransaction, data.getTransaction, "get tranasction")
 validateJson(schemas.getTransactionReceipt, data.getTransactionReceipt, "get transaction receipt")
-console.time();
-validateJson(schemas.getBlock, data.getBlock, "get Block")
+console.log(test.getBlock.transactions.length)
+validateJson(schemas.getBlock, test.getBlock, "get Block")
 console.timeEnd();
 

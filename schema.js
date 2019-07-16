@@ -139,7 +139,7 @@ const ethGetBlock = {
   ]
 }
 
-const btcGetBlock = {
+const btcGetBlockL1 = {
   "type": "object",
   "properties": {
     "result": {
@@ -349,10 +349,226 @@ const ethTraceBlockByNumber = {
   ]
 }
 
+const btcGetBlockL2 = {
+  "type": "object",
+  "properties": {
+    "result": {
+      "type": "object",
+      "properties": {
+        "hash": {
+          "type": "string"
+        },
+        "confirmations": {
+          "type": "integer"
+        },
+        "strippedsize": {
+          "type": "integer"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "weight": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        },
+        "version": {
+          "type": "integer"
+        },
+        "versionHex": {
+          "type": "string"
+        },
+        "merkleroot": {
+          "type": "string"
+        },
+        "tx": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "txid": {
+                  "type": "string"
+                },
+                "hash": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "integer"
+                },
+                "size": {
+                  "type": "integer"
+                },
+                "vsize": {
+                  "type": "integer"
+                },
+                "weight": {
+                  "type": "integer"
+                },
+                "locktime": {
+                  "type": "integer"
+                },
+                "vin": {
+                  "type": "array",
+                  "items":
+                  {
+                    "type": "object",
+                    "properties": {
+                      "coinbase": {
+                        "type": "string"
+                      },
+                      "sequence": {
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "coinbase",
+                      "sequence"
+                    ]
+                  }
+                },
+                "vout": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "value": {
+                          "type": "number"
+                        },
+                        "n": {
+                          "type": "integer"
+                        },
+                        "scriptPubKey": {
+                          "type": "object",
+                          "properties": {
+                            "asm": {
+                              "type": "string"
+                            },
+                            "hex": {
+                              "type": "string"
+                            },
+                            "reqSigs": {
+                              "type": "integer"
+                            },
+                            "type": {
+                              "type": "string"
+                            },
+                            "addresses": {
+                              "type": "array",
+                              "items": [
+                                {
+                                  "type": "string"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "asm",
+                            "hex",
+                            "reqSigs",
+                            "type",
+                            "addresses"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "value",
+                        "n",
+                        "scriptPubKey"
+                      ]
+                    }
+                  ]
+                },
+                "hex": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "txid",
+                "hash",
+                "version",
+                "size",
+                "vsize",
+                "weight",
+                "locktime",
+                "vin",
+                "vout",
+                "hex"
+              ]
+            }
+          ]
+        },
+        "time": {
+          "type": "integer"
+        },
+        "mediantime": {
+          "type": "integer"
+        },
+        "nonce": {
+          "type": "integer"
+        },
+        "bits": {
+          "type": "string"
+        },
+        "difficulty": {
+          "type": "integer"
+        },
+        "chainwork": {
+          "type": "string"
+        },
+        "nTx": {
+          "type": "integer"
+        },
+        "previousblockhash": {
+          "type": "string"
+        },
+        "nextblockhash": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "hash",
+        "confirmations",
+        "strippedsize",
+        "size",
+        "weight",
+        "height",
+        "version",
+        "versionHex",
+        "merkleroot",
+        "tx",
+        "time",
+        "mediantime",
+        "nonce",
+        "bits",
+        "difficulty",
+        "chainwork",
+        "nTx",
+        "previousblockhash",
+        "nextblockhash"
+      ]
+    },
+    "error": {
+      "type": "null"
+    },
+    "id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "result",
+    "error",
+    "id"
+  ]
+}
+
 module.exports = {
   ethGetTransaction,
   ethGetTransactionReceipt,
   ethGetBlock,
-  btcGetBlock,
+  btcGetBlockL1,
+  btcGetBlockL2,
   ethTraceBlockByNumber
 }

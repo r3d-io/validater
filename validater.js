@@ -20,6 +20,7 @@ console.time();
 validateJson(schemas.ethGetBlock, ethData.getBlock, "get Block eth")
 console.timeEnd();
 console.time();
-validateJson(schemas.btcGetBlock, btcData.getBlock, "get Block btc")
+validateJson(schemas.btcGetBlockL1, btcData.btcGetBlockL1, "get Block btc L1")
+validateJson(schemas.btcGetBlockL2, btcData.btcGetBlockL2, "get Block btc L2")
 console.timeEnd();
 
